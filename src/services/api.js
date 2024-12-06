@@ -2,7 +2,7 @@ import axios from "axios";
 import dayjs from "dayjs";
 
 // constants
-const BASE_URL = "http://localhost:7100";
+const BASE_URL = "http://localhost:5173";
 const LOGIN_URL = "api/auth/admin/login";
 const REFRESH_TOKEN_URL = "api/auth/admin/refresh-token";
 const TIMEOUT = 10000;
