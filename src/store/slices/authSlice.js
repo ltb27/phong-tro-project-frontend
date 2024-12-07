@@ -21,8 +21,8 @@ export const login = createAsyncThunk('user/login', async (userData) => {
 
 
 // Create the slice
-const SampleSlice = createSlice({
-    name: 'sample',
+const AuthSlice = createSlice({
+    name: 'auth',
     initialState,
     reducers: {},
     extraReducers: builder => {
@@ -35,6 +35,7 @@ const SampleSlice = createSlice({
     },
 });
 
-export const {} = SampleSlice.actions;
+export const {} = AuthSlice.actions;
+export const blackList = ['auth.isAuthenticated'];
 
-export default SampleSlice
+export default AuthSlice

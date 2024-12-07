@@ -15,9 +15,10 @@ const UserSlice = createSlice({
             state.userData = action.payload;
         },
     },
-  
+
 });
 
 export const {updateUserData} = UserSlice.actions;
+export const blackList = [];
 
 export default UserSlice;
