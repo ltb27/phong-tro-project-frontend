@@ -12,16 +12,27 @@ function App() {
                 Button: {
                     colorPrimary: colors.red,
                     algorithm: true,
+                },
+                Tabs: {
+                    colorPrimary: colors.red,
+                    algorithm: true,
+                    activeColorPrimary: colors.red,
+                },
+                Radio: {
+                    colorPrimary: colors.red,
+                    algorithm: true,
+                },
+                Form: {
+                    itemMarginBottom: '12px',
                 }
             }
         }} token={{
             colorPrimary: colors.red,
-            colorInfo: colors.blue,
             colorSuccess: colors.green,
             colorWarning: colors.orange,
             colorError: colors.red,
         }}>
-            <div className={"h-screen w-screen bg-primary"}>
+            <div className={"w-screen h-screen bg-primary overflow-scroll"}>
                 <RouterProvider router={router}/>
             </div>
         </ConfigProvider>

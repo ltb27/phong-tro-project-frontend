@@ -4,6 +4,7 @@ import {HomePage, LoginPage, RegisterPage} from "@/pages/public";
 import {DashboardPage, ProfilePage} from "@/pages/protected";
 import {paths} from "@/utils/constants.js";
 import NotFoundPage from "@/pages/common/NotFoundPage.jsx";
+import AuthContentLayout from "@/layouts/content/AuthContentLayout.jsx";
 import {redirectAuthenticatedUser} from "@/utils/authRedirect.js";
 
 const router = createBrowserRouter(
@@ -11,8 +12,10 @@ const router = createBrowserRouter(
         <>
             <Route path={paths.HOME} element={<PublicLayout/>}>
                 <Route index element={<HomePage/>}/>
-                <Route loader={redirectAuthenticatedUser} path={paths.LOGIN} element={<LoginPage/>}/>
-                <Route path={paths.REGISTER} element={<RegisterPage/>}/>
+                <Route loader={redirectAuthenticatedUser} path={paths.AUTH} element={<AuthContentLayout/>}>
+                    <Route path={paths.LOGIN} element={<LoginPage/>}/>
+                    <Route path={paths.REGISTER} element={<RegisterPage/>}/>
+                </Route>
             </Route>
             <Route
                 path={paths.ADMIN}

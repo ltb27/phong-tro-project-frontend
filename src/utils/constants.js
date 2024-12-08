@@ -1,10 +1,11 @@
 export const paths = {
     HOME: "/",
-    LOGIN: "/login",
-    REGISTER: "/register",
+    LOGIN: "login",
+    REGISTER: "register",
     DASHBOARD: "dashboard",
     PROFILE: "profile",
-    ADMIN: "/admin",
+    ADMIN: "admin",
+    AUTH: "auth",
 }
 
 export const colors = {

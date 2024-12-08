@@ -11,9 +11,10 @@ export default function Header() {
         {key: "1", label: "Đăng nhập", onClick: () => console.log("1")},
         {key: "2", label: "Đăng ký", onClick: () => console.log("2")},
     ];
+
     return (
         <Flex justify={"space-between"} align={"center"} gap={30}
-              className="container max-w-container-xxl h-15 border-b-1">
+              className="container max-w-container-xxl h-15 border-b-2 border-gray-100 border-solid">
             <Flex justify={"space-between"} align={"center"} gap={30}>
                 <Image loading={"lazy"} preview={false} src={logo} alt="logo" width={190} height={60}
                        style={{objectFit: "contain"}}/>
