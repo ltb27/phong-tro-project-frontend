@@ -9,12 +9,13 @@ import {redirectAuthenticatedUser} from "@/utils/authRedirect.js";
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
-            <Route element={<PublicLayout/>}>
-                <Route index path={paths.HOME} element={<HomePage/>}/>
+            <Route path={paths.HOME} element={<PublicLayout/>}>
+                <Route index element={<HomePage/>}/>
                 <Route loader={redirectAuthenticatedUser} path={paths.LOGIN} element={<LoginPage/>}/>
                 <Route path={paths.REGISTER} element={<RegisterPage/>}/>
             </Route>
             <Route
+                path={paths.ADMIN}
                 element={<ProtectedLayout/>}
             >
                 <Route path={paths.DASHBOARD} element={<DashboardPage/>}/>
@@ -22,7 +23,7 @@ const router = createBrowserRouter(
             </Route>
             <Route path="*" element={<NotFoundPage/>}/>
         </>
-    )
+    ),
 )
 
 export default router;
