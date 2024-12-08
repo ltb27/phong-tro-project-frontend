@@ -1,6 +1,9 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import api from "@/services/api.js";
 
+const LOGIN_URL = 'api/auth/admin/login';
+const LOGOUT_URL = '/api/auth/admin/logout';
+
 // Initial state for the slice
 const initialState = {
     isAuthenticated: false,
@@ -11,14 +14,13 @@ const initialState = {
 
 // thunk actions
 export const logout = createAsyncThunk('user/logout', async () => {
-    await api.post('/api/auth/admin/logout');
+    await api.post(LOGOUT_URL);
 });
 
-export const login = createAsyncThunk('user/login', async (userData) => {
-    const response = await api.post('api/auth/admin/login', userData);
+export const login = createAsyncThunk('user/login', async (credentials) => {
+    const response = await api.post(LOGIN_URL, credentials);
     return response.data;
 });
-
 
 // Create the slice
 const AuthSlice = createSlice({
@@ -30,7 +32,12 @@ const AuthSlice = createSlice({
             state.userData = action.payload;
         });
         builder.addCase(logout.fulfilled, (state, action) => {
-            state.userData = {};
+            state.userData = {
+                isAuthenticated: false,
+                token: null,
+                refreshToken: null,
+                tokenExpiration: null,
+            };
         });
     },
 });
